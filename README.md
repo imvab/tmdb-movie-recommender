@@ -2,4 +2,9 @@
 
 ![](index.png)
 
-Templates used from this awesome repo by coderIlluminatus - https://github.com/coderIlluminatus/django-tmdb
+Build Using 
+
+```
+pip install requirements.txt
+python manage.py runserver
+```
