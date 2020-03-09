@@ -10,6 +10,7 @@ __pycache__/
 *.pickle
 *.csv
 
+
 # Distribution / packaging
 .Python
 build/

@@ -15,6 +15,7 @@ config = ConfigParser()
 config.read('movies/config.cfg')
 tmdb.API_KEY = config['tmdb']['API_KEY']
 
+
 # Create your views here.
 def home(request):
     """This is a function-based view to serve
@@ -54,8 +55,6 @@ def recomendations(request, id = None):
         render method at the movie.html endpoint with
         the required search results.
     """
-    #smd = smd.reset_index()
-    # indices = pd.Series(smd.index, index=smd['title'])
 
     idx = smd[smd['id'] == int(id)].index
 
@@ -66,10 +65,7 @@ def recomendations(request, id = None):
         movie_indices = [i[0] for i in sim_scores]
         return smd.iloc[movie_indices]
 
-
-
     qualified = get_recommendations(idx[0])
-    #qualified = qualified[(qualified['vote_count'] > 100) & (qualified['vote_average'] > 6.5)]
     qualified = qualified['title'].tolist()
 
     search_result = []
@@ -85,7 +81,7 @@ def recomendations(request, id = None):
         "has_result": (search_result != [])
     }
 
-    return render(request, "movie.html", frontend)
+    return render(request, "recomends.html", frontend)
 
 
 def details(request, id=None):
